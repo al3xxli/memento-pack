@@ -4,7 +4,7 @@
 
 ## Before the audience arrives
 
-1. Run `npm ci` once, then `npm run dev`. Open `http://localhost:8080/?present=1` in desktop Chrome or Edge while online so p5.js can load.
+1. Run `npm ci` once while online, then `npm run dev`. Open `http://localhost:8080/?present=1` in desktop Chrome or Edge. p5.js is bundled into the local build; no separate CDN connection is needed to run it.
 2. Upload the live Arduino sketch, close Serial Monitor, and start with an empty bag.
 3. Press **H**, select **connect**, and choose the Arduino. Press **H** again to hide setup controls.
 4. Rehearse empty → sleeves → small notebook → heavy notebook, then reverse. Pause roughly one to two seconds between placements.

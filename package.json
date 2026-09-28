@@ -4,11 +4,14 @@
   "private": true,
   "description": "Wizard-of-Oz FSR backpack demo",
   "scripts": {
-    "dev": "serve public -l 8080",
+    "dev": "npm run build && serve dist -l 8080",
+    "build": "node scripts/build.mjs",
+    "preview": "serve dist -l 8080",
     "test": "node scripts/check.mjs"
   },
   "devDependencies": {
+    "p5": "1.11.3",
     "serve": "^14.2.4"
-  }
+  },
+  "engines": { "node": "22.x" }
 }
-

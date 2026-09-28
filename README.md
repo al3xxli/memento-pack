@@ -19,7 +19,7 @@ The exterior is a **Wizard-of-Oz storytelling prototype**: its locations and sto
 
 ## Try it locally
 
-Requires Node.js 20+ and npm. Desktop Chrome or Edge is needed for live USB serial input.
+Use Node.js 22.x and npm to match the deployment environment. Desktop Chrome or Edge is needed for live USB serial input.
 
 ```sh
 npm ci
@@ -33,7 +33,7 @@ Open **http://localhost:8080/?present=1** for the presentation view.
 - Press **H** to reveal or hide the connection controls.
 - In Outer, start with all memories, then select a country or city to isolate its marks.
 
-The page loads p5.js from a pinned CDN URL; have internet access when opening or refreshing it. No account, API key, database, or backend is required.
+The build bundles the tested p5.js version with the site, so the page has no third-party CDN dependency. No account, API key, database, or backend is required. After source edits, rebuild and refresh; there is no hot reloading.
 
 ## Connect the physical prototype
 
@@ -88,7 +88,7 @@ public/
   assets/                  Replaceable backpack illustrations
 design/                    Approved front-panel baseline
 docs/                      Demo, hardware, and artwork guides
-scripts/check.mjs          Local verification
+scripts/                   Verification and production build
 .github/workflows/         Automated repository checks
 vercel.json                Static hosting configuration
 ```
@@ -97,11 +97,14 @@ vercel.json                Static hosting configuration
 
 ```sh
 npm test
+npm run build
 ```
 
-Checks cover required files, browser-script syntax, travel data, and the approved front-panel baseline. GitHub Actions runs the same command on pushes and pull requests. Browser interactions have also been checked locally; automated checks do not establish live sensor reliability.
+Checks cover required files, browser-script syntax, travel data, and the approved front-panel baseline. The production build additionally validates runtime asset references and bundles p5.js into `dist/`. GitHub Actions tests and builds on pushes and pull requests. Browser interactions have also been checked locally; automated checks do not establish live sensor reliability.
 
-For Vercel, import this repository with the **Other** framework preset and **public** as the output directory. There is no compilation step; [vercel.json](vercel.json) supplies the output directory. Serve over HTTPS for Web Serial. No deployment is performed by the verification workflow.
+For Vercel, import **al3xxli/memento-pack**, leave **Root Directory** at `./`, and deploy. [vercel.json](vercel.json) explicitly configures **Other**, `npm ci --include=dev`, `npm run build`, and the **dist** output directory. No environment variables are needed. The site is entirely static; no server or functions are deployed.
+
+[Vercel import settings and production preview →](docs/DEPLOYMENT.md)
 
 ## Prototype status
 
