@@ -30,6 +30,10 @@ new Function(readFileSync(resolve(root, 'public/outer.js'), 'utf8'));
 const travelSource = readFileSync(resolve(root, 'public/travel-data.js'), 'utf8');
 new Function(travelSource);
 const locations = runInNewContext(`${travelSource}\nTRAVEL_LOCATIONS`);
+const approved = JSON.parse(readFileSync(resolve(root, 'design/approved-front-panel-layout.json'), 'utf8'));
+assert.deepEqual(JSON.parse(JSON.stringify(locations)), approved.locations, 'Travel data must match the approved front-panel layout');
+const outerSource = readFileSync(resolve(root, 'public/outer.js'), 'utf8');
+assert.ok(outerSource.includes(approved.cornerOutline), 'Preserve the approved L-shaped corner outline');
 assert.equal(locations.length, 12);
 assert.equal(new Set(locations.map((place) => place.id)).size, 12, 'City IDs must be unique for filtering');
 assert.equal(new Set(locations.map((place) => place.color)).size, 12, 'Each city needs its own color');
@@ -44,4 +48,4 @@ for (const place of locations) {
     assert.ok(mark.story.trim());
   }
 }
-console.log(`Checked ${required.length} required files, browser syntax, and all 12 travel locations.`);
+console.log(`Checked ${required.length} required files, browser syntax, all 12 travel locations, and the approved front-panel baseline.`);
