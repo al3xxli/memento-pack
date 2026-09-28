@@ -13,11 +13,12 @@ const required = [
   'public/outer.js',
   'public/mobile.js',
   'public/travel-data.js',
-  'public/assets/backpack-closed.svg',
-  'public/assets/backpack-empty.svg',
-  'public/assets/backpack-pockets.svg',
-  'public/assets/backpack-small-notebook.svg',
-  'public/assets/backpack-heavy-notebooks.svg'
+  'public/assets/Photos/Exterior.png',
+  'public/assets/Photos/Interior_fully_empty.png',
+  'public/assets/Photos/Interior_pockets.png',
+  'public/assets/Photos/Interior_front_notebook_only.png',
+  'public/assets/Photos/Interior_Both Notebooks.png',
+  'public/assets/Photos/Interior_spiral_notebook_only.png'
 ];
 for (const file of required) {
   if (!existsSync(resolve(root, file))) throw new Error(`Missing required file: ${file}`);
@@ -27,6 +28,28 @@ for (const state of ['EMPTY', 'POCKETS', 'SMALL', 'HEAVY']) {
   if (!sketch.includes(state)) throw new Error(`Missing browser state: ${state}`);
 }
 new Function(sketch.replace(/^\/\* global p5 \*\/\s*/, ''));
+const states = runInNewContext(`${sketch.split('const REMOVALS')[0]}\nSTATES`);
+const stateImages = {
+  EMPTY: 'Interior_fully_empty.png', POCKETS: 'Interior_pockets.png',
+  SMALL: 'Interior_front_notebook_only.png', HEAVY: 'Interior_Both Notebooks.png'
+};
+for (const [state, filename] of Object.entries(stateImages)) {
+  assert.equal(states[state].image, `assets/Photos/${filename}`, `Wrong drawing for ${state}`);
+}
+for (const file of required.filter((file) => file.endsWith('.png'))) {
+  const png = readFileSync(resolve(root, file));
+  assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `Invalid PNG: ${file}`);
+  assert.equal(png.readUInt32BE(16), 1254, `Unexpected image width: ${file}`);
+  assert.equal(png.readUInt32BE(20), 1254, `Unexpected image height: ${file}`);
+}
+// Verify that one shared perspective mapping fits all four front-panel corners.
+const css = readFileSync(resolve(root, 'public/style.css'), 'utf8');
+const matrix = css.match(/#panel-projection\s*\{[^}]*matrix3d\(([^)]+)\)/)[1].split(',').map(Number);
+for (const [x, y, expectedX, expectedY] of [[0, 0, 302, 159], [280, 0, 674, 137], [280, 370, 670, 1181], [0, 370, 351, 1030]]) {
+  const w = matrix[3] * x + matrix[7] * y + matrix[15];
+  assert.ok(Math.abs((matrix[0] * x + matrix[4] * y + matrix[12]) / w - expectedX) < .01);
+  assert.ok(Math.abs((matrix[1] * x + matrix[5] * y + matrix[13]) / w - expectedY) < .01);
+}
 new Function(readFileSync(resolve(root, 'public/outer.js'), 'utf8'));
 new Function(readFileSync(resolve(root, 'public/mobile.js'), 'utf8'));
 const travelSource = readFileSync(resolve(root, 'public/travel-data.js'), 'utf8');
@@ -50,4 +73,4 @@ for (const place of locations) {
     assert.ok(mark.story.trim());
   }
 }
-console.log(`Checked ${required.length} required files, browser syntax, all 12 travel locations, and the approved front-panel baseline.`);
+console.log(`Checked ${required.length} required files, PNGs and state mapping, panel projection, browser syntax, all 12 travel locations, and the approved front-panel baseline.`);

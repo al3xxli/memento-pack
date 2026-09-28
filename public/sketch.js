@@ -1,9 +1,9 @@
 /* global p5 */
 const STATES = {
-  EMPTY: { headline: 'Empty state detected. Maximum volume, ready for travel.', image: 'assets/backpack-empty.svg', alt: 'Isometric backpack placeholder: empty.' },
-  POCKETS: { headline: 'Dual sleeve detected, ready for daily use.', image: 'assets/backpack-pockets.svg', alt: 'Isometric backpack placeholder: dual sleeves installed.' },
-  SMALL: { headline: 'Small notebook detected. Where you heading?', image: 'assets/backpack-small-notebook.svg', alt: 'Isometric backpack placeholder: small notebook inside.' },
-  HEAVY: { headline: 'Multiple notebooks detected. Seems like you’re ready to go study.', image: 'assets/backpack-heavy-notebooks.svg', alt: 'Isometric backpack placeholder: multiple notebooks inside.' }
+  EMPTY: { headline: 'Empty state detected. Maximum volume, ready for travel.', image: 'assets/Photos/Interior_fully_empty.png', alt: 'Open backpack with an empty interior.' },
+  POCKETS: { headline: 'Dual sleeve detected, ready for daily use.', image: 'assets/Photos/Interior_pockets.png', alt: 'Open backpack with dual sleeves installed.' },
+  SMALL: { headline: 'Small notebook detected. Where you heading?', image: 'assets/Photos/Interior_front_notebook_only.png', alt: 'Open backpack with a small notebook in the front sleeve.' },
+  HEAVY: { headline: 'Multiple notebooks detected. Seems like you’re ready to go study.', image: 'assets/Photos/Interior_Both Notebooks.png', alt: 'Open backpack with a small front notebook and a large spiral notebook.' }
 };
 
 const REMOVALS = {

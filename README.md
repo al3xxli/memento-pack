@@ -5,7 +5,7 @@ Memento explores two kinds of memory: the things we carry inside a bag, and the 
 
 ![Memento exterior demo with location filters and the approved front-panel marks](docs/images/outer-demo.png)
 
-*Approved exterior composition. Backpack illustrations are placeholders pending the final drawings.*
+*The supplied backpack drawing with the approved travel-wear composition, perspective-aligned to its front panel.*
 
 ## Two ways to read the backpack
 
@@ -72,7 +72,7 @@ Sequential removals show **“Large notebook removed.”**, **“Small notebook 
 
 The front-panel arrangement is saved in [design/approved-front-panel-layout.json](design/approved-front-panel-layout.json). It includes positions, colors, scale, opacity, stories, and the continuous L-shaped lower-right scuff.
 
-When the final drawing arrives, align the existing overlay to the new front panel. Preserve the approved composition and its location mapping.
+The supplied drawings in `public/assets/Photos/` are now used in both views. The existing overlay is perspective-aligned to the new front panel; all approved mark data and location mappings are preserved. The spiral-only interior drawing is kept as an alternate outside the four-state sequence.
 
 [Image replacement and layout notes →](docs/ARTWORK.md)
 
@@ -87,7 +87,7 @@ public/
   outer.js                 Interactive exterior marks and filters
   mobile.js                Live phone frame and responsive resizing
   travel-data.js           Authored locations, colors, and memories
-  assets/                  Replaceable backpack illustrations
+  assets/Photos/           Supplied exterior and interior PNG drawings
 design/                    Approved front-panel baseline
 docs/                      Demo, hardware, and artwork guides
 scripts/                   Verification and production build
@@ -110,4 +110,4 @@ For Vercel, import **al3xxli/memento-pack**, leave **Root Directory** at `./`, a
 
 ## Prototype status
 
-The interface, authored travel memories, keyboard rehearsal, and serial integration are implemented. Final backpack drawings are pending. Calibrate and rehearse with the actual sensor, wiring, and physical model before each presentation.
+The interface, supplied backpack drawings, authored travel memories, keyboard rehearsal, and serial integration are implemented. Calibrate and rehearse with the actual sensor, wiring, and physical model before each presentation.

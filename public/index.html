@@ -31,15 +31,19 @@
     <aside id="history" aria-label="History log"></aside>
     <main>
       <h1 id="headline" aria-live="polite"></h1>
-      <div id="canvas-container" role="img" aria-label="Isometric backpack placeholder: empty."></div>
+      <div id="canvas-container" role="img" aria-label="Open backpack with an empty interior."></div>
       <div id="outer-container" hidden>
-        <svg id="outer-pack" viewBox="0 0 800 700" aria-label="Closed backpack with interactive travel marks">
-          <defs>
-            <clipPath id="front-panel-clip"><rect x="0" y="0" width="280" height="370" rx="39" /></clipPath>
-            <filter id="wear-soften" x="-60%" y="-100%" width="220%" height="300%"><feGaussianBlur stdDeviation="1.6" /></filter>
-          </defs>
-          <image href="assets/backpack-closed.svg" width="800" height="700" />
-          <g transform="matrix(1 .2 0 1 250 140)" clip-path="url(#front-panel-clip)" id="travel-marks"></g>
+        <svg id="outer-pack" viewBox="0 0 1254 1254" aria-label="Closed backpack with interactive travel marks">
+          <image href="assets/Photos/Exterior.png" width="1254" height="1254" />
+          <!-- Perspective-fit the entire approved composition, never individual marks. -->
+          <foreignObject width="1254" height="1254" class="panel-layer">
+            <div xmlns="http://www.w3.org/1999/xhtml" id="panel-projection">
+              <svg xmlns="http://www.w3.org/2000/svg" width="280" height="370" viewBox="0 0 280 370">
+                <defs><clipPath id="front-panel-clip"><rect width="280" height="370" rx="3" /></clipPath></defs>
+                <g clip-path="url(#front-panel-clip)" id="travel-marks"></g>
+              </svg>
+            </div>
+          </foreignObject>
         </svg>
       </div>
     </main>

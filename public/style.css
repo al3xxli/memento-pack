@@ -34,9 +34,12 @@ h1 { position: fixed; top: 5.5rem; left: 50%; width: min(900px, calc(100vw - 4re
 #location-filter button:hover { color: #000; }
 #location-filter button[aria-pressed="true"]:not([data-city="all"]) { text-decoration: underline; text-underline-offset: .3rem; }
 .location-dot { display: inline-block; flex: 0 0 6px; width: 6px; height: 6px; border-radius: 50%; }
-#outer-container { width: min(70vw, 850px); }
+#outer-container { width: min(70vw, 660px); }
 #outer-pack { display: block; width: 100%; max-height: 80vh; overflow: visible; }
-.travel-mark { cursor: pointer; outline: none; }
+/* Map the original 280 x 370 panel to the four corners of the supplied drawing. */
+.panel-layer { pointer-events: none; }
+#panel-projection { width: 280px; height: 370px; transform-origin: 0 0; transform: matrix3d(.8726687876,-.1712400663,0,-.0006764134,.2877919881,2.8099524654,0,.0004426198,0,0,1,0,302,159,0,1); }
+.travel-mark { cursor: pointer; outline: none; pointer-events: auto; }
 .travel-mark > :not(.mark-hit) { pointer-events: none; }
 .travel-mark[data-active="true"] .wear-texture { filter: contrast(1.35); }
 .travel-mark:focus-visible .mark-hit { stroke: currentColor; stroke-width: .6; stroke-dasharray: 1 5; }
@@ -63,7 +66,7 @@ button:focus-visible, select:focus-visible { outline: 1px solid #777; outline-of
   #location-filter button { flex-shrink: 0; min-height: 36px; font-size: 11px; }
   body[data-view="outer"] main { inset: 168px 0 28px; padding: 0; }
   #outer-container { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; overflow: hidden; }
-  #outer-pack { width: 165%; flex: none; max-height: 100%; overflow: visible; }
+  #outer-pack { width: 100%; height: 100%; flex: none; max-height: 100%; overflow: visible; }
   #dev-tools { position: absolute; right: 18px; bottom: 15px; font-size: 10px; }
   #dev-tools button { min-height: 28px; }
 }
