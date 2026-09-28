@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Small notebook backpack placeholder</title><desc id="desc">Replace this file with the final backpack illustration showing a small notebook.</desc>
+  <rect width="800" height="600" fill="white"/><g fill="none" stroke="black" stroke-width="5" stroke-linejoin="round">
+  <path d="M230 190 420 95l185 98v255L415 540 230 442Z"/><path d="m230 190 185 93 190-90M415 283v257"/><path d="M306 154c5-90 195-90 205 0"/>
+  <path d="m275 260 140 70 145-70v180L415 512 275 440Z"/><path d="m353 213 102-51 0 178-102 51z" fill="white"/><path d="m365 218 72-36M365 242l72-36"/>
+  </g><text x="400" y="570" text-anchor="middle" font-family="Arial" font-size="16">PLACEHOLDER — SMALL NOTEBOOK</text>
+</svg>
+

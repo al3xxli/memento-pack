@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700">
+  <title>Closed Memento backpack — replaceable exterior placeholder</title>
+  <defs>
+    <linearGradient id="side" x1="0" x2="1"><stop stop-color="#eceae6"/><stop offset="1" stop-color="#f8f7f5"/></linearGradient>
+    <linearGradient id="front" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#faf9f6"/><stop offset="1" stop-color="#eeede8"/></linearGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <ellipse cx="415" cy="600" rx="157" ry="15" fill="#000" opacity=".055" filter="url(#shadow)"/>
+  <g stroke="#292b2a" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M349 127 C345 73 382 64 408 81 L441 101 C452 109 453 124 452 144 L439 150 C441 125 435 116 425 111 L398 96 C379 85 364 99 365 132Z" fill="#eeede8" stroke-width="1.5"/>
+    <path d="M289 130 L368 87 Q385 80 404 86 L570 120 Q606 127 606 171 L606 460 Q606 493 585 507 L512 554 L496 203Z" fill="url(#side)" stroke-width="1.5"/>
+    <path d="M566 135 Q590 140 590 174 L590 456 Q590 479 577 488 L539 513" fill="none" stroke="#9b9b94"/>
+    <path d="M574 255 L574 288 M570 288 L578 290 L578 309 L570 307Z" fill="#e3e1da" stroke-width="1.3"/>
+    <g transform="matrix(1 .2 0 1 250 140)">
+      <rect x="-8" y="-8" width="296" height="386" rx="48" fill="url(#front)" stroke-width="1.7"/>
+      <rect width="280" height="370" rx="39" fill="none" stroke="#c5c4bc" stroke-width=".8"/>
+      <path d="M16 317 Q138 328 264 317" stroke="#d4d2ca" fill="none" stroke-width=".7"/>
+    </g>
+  </g>
+</svg>

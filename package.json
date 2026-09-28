@@ -1,0 +1,14 @@
+{
+  "name": "memento-pack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wizard-of-Oz FSR backpack demo",
+  "scripts": {
+    "dev": "serve public -l 8080",
+    "test": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
+
