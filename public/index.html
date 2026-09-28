@@ -10,8 +10,14 @@
     <script defer src="sketch.js"></script>
     <script defer src="travel-data.js"></script>
     <script defer src="outer.js"></script>
+    <script defer src="mobile.js"></script>
   </head>
   <body>
+    <button id="phone-toggle" type="button" aria-label="Show phone preview" aria-pressed="false" title="Phone preview">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10 18.5h4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+    </button>
+    <div id="device-shell">
+    <div id="app-viewport">
     <nav id="view-switch" aria-label="Backpack view">
       <button type="button" data-view="outer" aria-pressed="false">Outer</button>
       <span aria-hidden="true">/</span>
@@ -37,10 +43,12 @@
         </svg>
       </div>
     </main>
-    <div id="mark-tooltip" role="tooltip" hidden><span id="tooltip-place"></span><span id="tooltip-story"></span></div>
     <nav id="dev-tools" aria-label="Setup tools">
       <button id="connect" type="button">connect</button>
       <span id="connection-status"></span>
     </nav>
+    </div>
+    </div>
+    <div id="mark-tooltip" role="tooltip" hidden><span id="tooltip-place"></span><span id="tooltip-story"></span></div>
   </body>
 </html>

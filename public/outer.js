@@ -23,11 +23,15 @@
     document.querySelector('#tooltip-place').textContent = `${location.city}, ${location.country}`;
     document.querySelector('#tooltip-story').textContent = memory.story;
     tooltip.hidden = false;
+    const screen = document.querySelector('#app-viewport').getBoundingClientRect();
+    const left = Math.max(0, screen.left), top = Math.max(0, screen.top);
+    const right = Math.min(innerWidth, screen.right), bottom = Math.min(innerHeight, screen.bottom);
+    tooltip.style.maxWidth = `${Math.max(120, Math.min(265, right - left - 24))}px`;
     const bounds = mark.getBoundingClientRect();
     const x = event?.clientX ?? bounds.right;
     const y = event?.clientY ?? bounds.top;
-    tooltip.style.left = `${Math.max(12, Math.min(x + 18, innerWidth - tooltip.offsetWidth - 12))}px`;
-    tooltip.style.top = `${Math.max(12, Math.min(y + 16, innerHeight - tooltip.offsetHeight - 12))}px`;
+    tooltip.style.left = `${Math.max(left + 12, Math.min(x + 18, right - tooltip.offsetWidth - 12))}px`;
+    tooltip.style.top = `${Math.max(top + 12, Math.min(y + 16, bottom - tooltip.offsetHeight - 12))}px`;
   }
 
   // Each memory is one curved brush gesture with a pressure-shaped silhouette.

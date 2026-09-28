@@ -40,6 +40,16 @@ Suggested moments:
 
 The contrast between substantial and nearly absent traces helps explain how different encounters leave different memories. These are authored demo stories. Returning to Interior restores the current interior state and its history; serial updates continue while Outer is open.
 
+## Phone preview
+
+Use the top-right phone icon to put the current demo inside a Galaxy S26 Ultra–inspired frame. Click it again to return to the desktop view. This is the same running page, not a screenshot or iframe: view selection, filters, history, keyboard rehearsal, and any active desktop serial connection are preserved.
+
+The layout responds to the screen container's width. On the phone, country selection sits above a horizontally scrollable city list, the illustration is centered below it, and interior history scrolls within the lower part of the screen. Story labels stay within the screen bounds. Actual narrow browser windows use this compact layout without requiring the mockup frame.
+
+The frame references Samsung's published 163.6 × 78.1 mm proportions, with rounded corners and a small centered camera opening; it is an illustrative front-view mockup, not an exact hardware rendering. [Samsung S26 specifications](https://www.samsung.com/ie/support/mobile-devices/what-are-the-differences-between-the-galaxy-s26-ultra-s26-plus-and-s26/).
+
+Phone preview does not emulate Android or change browser USB support. Live serial remains dependent on the desktop browser and its permissions.
+
 ## Browser and hosting
 
 Web Serial requires desktop Chromium and a secure context: `localhost` or HTTPS. Visiting the page does not grant USB access; the presenter must select a port. Do not open the HTML directly with `file://`.

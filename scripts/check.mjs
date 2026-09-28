@@ -11,6 +11,7 @@ const required = [
   'public/style.css',
   'public/sketch.js',
   'public/outer.js',
+  'public/mobile.js',
   'public/travel-data.js',
   'public/assets/backpack-closed.svg',
   'public/assets/backpack-empty.svg',
@@ -27,6 +28,7 @@ for (const state of ['EMPTY', 'POCKETS', 'SMALL', 'HEAVY']) {
 }
 new Function(sketch.replace(/^\/\* global p5 \*\/\s*/, ''));
 new Function(readFileSync(resolve(root, 'public/outer.js'), 'utf8'));
+new Function(readFileSync(resolve(root, 'public/mobile.js'), 'utf8'));
 const travelSource = readFileSync(resolve(root, 'public/travel-data.js'), 'utf8');
 new Function(travelSource);
 const locations = runInNewContext(`${travelSource}\nTRAVEL_LOCATIONS`);

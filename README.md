@@ -29,6 +29,7 @@ npm run dev
 Open **http://localhost:8080/?present=1** for the presentation view.
 
 - Switch between **Outer** and **Interior** at the top left.
+- Use the small **phone icon** at the top right to enter or exit the live phone preview. Your current state, filters, and history are preserved.
 - Press **0**, **1**, **2**, or **3** to rehearse the interior states without hardware.
 - Press **H** to reveal or hide the connection controls.
 - In Outer, start with all memories, then select a country or city to isolate its marks.
@@ -84,6 +85,7 @@ public/
   index.html               Minimal two-view interface
   sketch.js                p5.js interior view and Web Serial
   outer.js                 Interactive exterior marks and filters
+  mobile.js                Live phone frame and responsive resizing
   travel-data.js           Authored locations, colors, and memories
   assets/                  Replaceable backpack illustrations
 design/                    Approved front-panel baseline
